@@ -3,7 +3,7 @@
 #include "moviedatabase.h"
 #include "films.h"
 
-film createNewFilm(char *title, int released, char *ageRating, char *genre, int length, float rating){
+film* createNewFilm(char *title, int released, char *ageRating, char *genre, int length, float rating){
     
     film *newFilm = malloc(sizeof(film));
     
@@ -16,6 +16,17 @@ film createNewFilm(char *title, int released, char *ageRating, char *genre, int 
     
     printf("Title: %s\nReleased in: %d\nRating: %s\nGenre: %s\nLength: %d\nRating: %.1f\n", 
             newFilm->title, newFilm->released, newFilm->ageRating, newFilm->genre, newFilm->length, newFilm->rating);
+    
+    return newFilm;
+    
+}
+
+film allocateFilm(){
+    
+    
+    
+    
+    
     
 }
 

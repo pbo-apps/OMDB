@@ -15,8 +15,8 @@ typedef struct film{
     char ageRating[255];
     char genre[255];
     int length;
-    float rating;    
-       
+    float rating;
+    
 }film;
 
 #endif
