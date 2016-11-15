@@ -10,15 +10,12 @@
 
 typedef struct film{
     
-    char *title;
+    char title[255];
     int released;
-    char *ageRating;
-    char *genre;
+    char ageRating[255];
+    char genre[255];
     int length;
-    float rating;
-    
-    struct film *next;
-    
+    float rating;    
        
 }film;
 

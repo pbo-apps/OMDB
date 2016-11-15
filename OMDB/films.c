@@ -7,12 +7,12 @@ film createNewFilm(char *title, int released, char *ageRating, char *genre, int 
     
     film *newFilm = malloc(sizeof(film));
     
-    newFilm->title = title;
-    newFilm->released = released;
-    newFilm->ageRating = ageRating;
-    newFilm->genre = genre;
-    newFilm->length = length;
-    newFilm->rating = rating;
+	strcpy_s(newFilm->title, sizeof(newFilm->title), title);
+	newFilm->released = released;
+	strcpy_s(newFilm->ageRating, sizeof(newFilm->ageRating), ageRating);
+	strcpy_s(newFilm->genre, sizeof(newFilm->genre), genre);
+	newFilm->length = length;
+	newFilm->rating = rating;
     
     printf("Title: %s\nReleased in: %d\nRating: %s\nGenre: %s\nLength: %d\nRating: %.1f\n", 
             newFilm->title, newFilm->released, newFilm->ageRating, newFilm->genre, newFilm->length, newFilm->rating);
