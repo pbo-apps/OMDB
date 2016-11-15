@@ -12,51 +12,36 @@
 #include "moviedatabase.h"
 
 int main(int argc, char** argv){
+   
+    size_t len = 0;
+    ssize_t read;
+    char *buff = NULL;
+    FILE *filmf = fopen("films.txt", "r");
     
-
-    film NewFilm2 = {"Terminator", 1934, "PG-13", "Action", 140, 4.5};
-    film NewFilm3 = {"Hook", 1934, "PG-13", "Action", 140, 4.5};
-    film NewFilm4 = {"Avengers", 1934, "PG-13", "Action", 140, 4.5};
-    film NewFilm5 = {"SSSS", 1934, "PG-13", "Action", 140, 4.5};
-    film NewFilm6 = {"jiwo", 1934, "PG-13", "Action", 140, 4.5};
-    film NewFilm7 = {"DPDPPD", 1934, "PG-13", "Action", 140, 4.5};
-    inputData(NewFilm2);
-    inputData(NewFilm3);
-    inputData(NewFilm4);
-    inputData(NewFilm5);
-    inputData(NewFilm6);
-    inputData(NewFilm7);
+    //while (fgets(buff, 255, filmf) != NULL){
     
-    
-            
-    /*
-    int released = atoi(strtok(NULL, " ,"));
-    char *ageRating = strtok(NULL, " ,");
-    char *genre = strtok(NULL, " ,");
-    int length = atoi(strtok(NULL, ", "));
-    float rating = atof(strtok(NULL, ", "));*/
-    // adds the values to the structs for an item
-    //film *newFilm = createNewFilm(title, released, ageRating, genre, length, rating);
-    // adds the item to the inventory linkedlist
-    //database *filmDatabase = inputData(newFilm);
-    
-    /*
-    
-    while (fgets(buff, 255, filmf) != NULL){
-        
-        char *title = strtok(buff, " ,");
-        int released = atoi(strtok(NULL, " ,"));
-        char *ageRating = strtok(NULL, " ,");
-        char *genre = strtok(NULL, " ,");
-        int length = atoi(strtok(NULL, ", "));
-        float rating = atof(strtok(NULL, ", "));
+    //while (fgets(buff, 255, filmf) != NULL){
+      while ((read = getline(&buff, &len, filmf)) != -1)  {
+          
+        char *title = strtok(buff, ",");
+        int released = atoi(strtok(NULL, ","));
+        char *ageRating = strtok(NULL, ",");
+        char *genre = strtok(NULL, ",");
+        int length = atoi(strtok(NULL, ","));
+        float rating = atof(strtok(NULL, ","));
+        //printf("%zu", read);
+        //printf("Title: %s\nReleased in: %d\nRating: %s\nGenre: %s\nLength: %d\nRating: %.1f\n", 
+           //title, released, ageRating, genre, length, rating);
         // adds the values to the structs for an item
-        film *newFilm = createNewFilm(title, released, ageRating, genre, length, rating);
+        //film *newFilm = createNewFilm(title, released, ageRating, genre, length, rating);
+        film newFilm = {title, released, ageRating, genre, length, rating};
         // adds the item to the inventory linkedlist
-        database *filmDatabase = inputData(newFilm);
+        database *filmDatabase = inputData(&newFilm);
         //outputData();
     }
-    */
+    if (buff)
+        free(buff);
+    
     
     
     char stri[255];

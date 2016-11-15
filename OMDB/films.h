@@ -17,7 +17,6 @@ typedef struct film{
     int length;
     float rating;
     
-    struct film *next;
     
        
 }film;

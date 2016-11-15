@@ -20,7 +20,7 @@ void createNewMovieDatabase(film *newFilm) {
 
 }
 
-void inputData(film* newFilm) {
+void inputData(film *newFilm) {
 
 
 	// Create a list if one doesn't exist
@@ -104,18 +104,22 @@ void printFilms()
 {
 	if (pFirstNode != NULL)
 	{
-		bool first = true;
+		int first = 1;
 		database *database = pFirstNode;
 		while (database != NULL)
 		{
 			if (first)
 			{
 				printf("\n\n");
-				first = false;
+				first = 0;
 			}
 
 			if (database->film != NULL)
-				printf("%s\n", database->film->title);
+                        {
+                            printf("Title: %s\nReleased in: %d\nRating: %s\nGenre: %s\nLength: %d\nRating: %.1f\n", 
+            database->film->title, database->film->released, database->film->ageRating, database->film->genre, database->film->length, database->film->rating);
+				//printf("%s\n", database->film->title);
+                        }
 
 			if (database != database->nextFilm)
 				database = database->nextFilm;
