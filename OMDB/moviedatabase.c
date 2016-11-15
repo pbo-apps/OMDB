@@ -110,7 +110,7 @@ void printFilms()
 		{
 			if (first)
 			{
-				printf("\n\n", database->film->title);
+				printf("\n\n");
 				first = false;
 			}
 
