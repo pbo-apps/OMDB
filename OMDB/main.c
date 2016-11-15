@@ -33,10 +33,10 @@ int main(int argc, char** argv){
         //printf("Title: %s\nReleased in: %d\nRating: %s\nGenre: %s\nLength: %d\nRating: %.1f\n", 
            //title, released, ageRating, genre, length, rating);
         // adds the values to the structs for an item
-        //film *newFilm = createNewFilm(title, released, ageRating, genre, length, rating);
-        film newFilm = {title, released, ageRating, genre, length, rating};
+        film *newFilm = createNewFilm(title, released, ageRating, genre, length, rating);
+        //film newFilm = {title, released, ageRating, genre, length, rating};
         // adds the item to the inventory linkedlist
-        database *filmDatabase = inputData(&newFilm);
+        database *filmDatabase = inputData(newFilm);
         //outputData();
     }
     if (buff)
